@@ -83,7 +83,7 @@ public:
     TListNode<T>* back() const;
     TListNode<T>* prev(const TListNode<T>* obj) const;
     TListNode<T>* next(const TListNode<T>* obj) const;
-    TListNode<T>* nth(s32 index) const;
+    TListNode<T>* nth(s32 index) const { return static_cast<TListNode<T>*>(ListImpl::nth(index)); }
     s32 indexOf(const TListNode<T>* obj) const;
     bool isNodeLinked(const TListNode<T>* obj) const;
     void swap(TListNode<T>* obj1, TListNode<T>* obj2);
