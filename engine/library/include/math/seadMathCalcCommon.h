@@ -159,22 +159,22 @@ public:
         return a * 180 / pi();
     }
 
-    static s32 deg2idx(T a)
+    static u32 deg2idx(T a)
     {
         return a * cHalfRoundIdx / 180;
     }
 
-    static s32 rad2idx(T a)
+    static u32 rad2idx(T a)
     {
         return a * cHalfRoundIdx / pi();
     }
 
-    static T idx2deg(s32 a)
+    static T idx2deg(u32 a)
     {
         return a * (180.0f / cHalfRoundIdx);
     }
 
-    static T idx2rad(s32 a)
+    static T idx2rad(u32 a)
     {
         return a * pi() / cHalfRoundIdx;
     }
