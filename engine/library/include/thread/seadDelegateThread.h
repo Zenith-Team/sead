@@ -11,9 +11,15 @@ class IDelegate2;
 class DelegateThread : public Thread
 {
 public:
+    DelegateThread(const SafeString& name, IDelegate2<Thread*, MessageQueue::Element>* deleg, Heap* heap, s32 platformPriority = 0x10,
+                   MessageQueue::BlockType blockType = MessageQueue::cBlock, MessageQueue::Element quitMsg = cDefaultQuitMsg,
+                   s32 stackSize = cDefaultStackSize, s32 msgQueueSize = cDefaultMsgQueueSize);
     virtual ~DelegateThread();
 
-    IDelegate2<Thread*, s32>* mDelegate; // IDelegate2<Thread*, MessageQueue::Element>*
+protected:
+    void calc_(MessageQueue::Element) override;
+
+    IDelegate2<Thread*, MessageQueue::Element>* mDelegate;
 };
 #ifdef cafe
 static_assert(sizeof(DelegateThread) == 0x94, "sead::DelegateThread size mismatch");
