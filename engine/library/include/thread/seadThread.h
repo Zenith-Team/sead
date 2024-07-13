@@ -61,6 +61,12 @@ protected:
 #endif // cafe
 
 public:
+    static const s32 cDefaultPriority;
+
+    static const s32 cDefaultMsgQueueSize = 32;
+    static const s32 cDefaultStackSize = 0x1000;
+    static const s32 cDefaultQuitMsg = 0x7FFFFFFF;
+
     void* getStackTop() const { return mStackTop; }
     void* getStackBottom() const { return PtrUtil::addOffset(mStackTop, mStackSize); }
 
