@@ -168,6 +168,7 @@ public:
     void makeRT(const Vec3& r, const Vec3& t);
     void makeRTIdx(const Vector3<u32>& r, const Vec3& t);
     void makeRzxyIdx(u32 xr, u32 yr, u32 zr);
+    void makeRzxyIdx(const Vector3<u32>& r);
     void makeRzxyTIdx(const Vector3<u32>& r, const Vec3& t);
     void makeS(const Vec3& s);
     void makeS(T x, T y, T z);
@@ -183,13 +184,20 @@ public:
     void toQuat(Quat& q) const;
 
     void scaleAllElements(T s);
+    void scaleBases(T s);
     void scaleBases(T sx, T sy, T sz);
+    void scaleBases(const Vec3& s);
 
     void multScaleLocal(const Vec3& s);
     void setMultScaleLocal(const Self& n, const Vec3& s);
 
     void multTranslationLocal(const Vec3& t);
     void setMultTranslationLocal(const Self& n, const Vec3& t);
+
+    void multTranslationWorld(const Vec3& t);
+    void multTranslationWorld(T x, T y, T z);
+    void setMultTranslationWorld(const Vec3& t, const Self& n);
+    void setMultTranslationWorld(T x, T y, T z, const Self& n);
 
     void getBase(Vec3& o, s32 axis) const;
     Vec3 getBase(s32 axis) const;

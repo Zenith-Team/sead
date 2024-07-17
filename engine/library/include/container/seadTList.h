@@ -31,9 +31,8 @@ public:
 
     void erase()
     {
-        TList<T>* list = mList;
-        if (list)
-            list->erase(this);
+        if (mList != nullptr)
+            mList->erase(this);
     }
 
     T mData;
@@ -59,7 +58,9 @@ public:
 
     void pushBack(TListNode<T>* obj)
     {
-        obj->erase();
+        if (obj->mList != nullptr)
+            obj->mList->erase(obj);
+
         obj->mList = this;
         ListImpl::pushBack(obj);
     }
